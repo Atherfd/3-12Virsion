@@ -6,11 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/background1"
     tools:context=".WelcomePage">
-    <ProgressBar
-        android:id="@+id/progress"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+
+
 
     <ImageView
         android:id="@+id/imageView3"
@@ -76,54 +74,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="296dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:textColor="#020202"
-        android:textSize="18sp"
-        android:hint="UserName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColorHint="#FFD5D2D2"
+
+    <RatingBar
+        android:id="@+id/rating_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+android:rating="0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="336dp"
         android:gravity="center"
-
-
-        />
-
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="376dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:textColor="#020202"
-
-        android:hint="Password"
-        android:textColorHint="#FFD5D2D2"
-        android:inputType="textPassword"
-        android:textSize="18sp"
+        android:numStars="5"
+        android:stepSize="1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        />
+
+
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/serch"
+        android:id="@+id/rate"
         android:layout_width="169dp"
         android:layout_height="45dp"
-        android:layout_marginTop="472dp"
-        android:text="Log in"
+        android:layout_marginTop="428dp"
+        android:text="Rate"
         android:textColor="#16375D"
         app:backgroundTint="#E1DFDF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

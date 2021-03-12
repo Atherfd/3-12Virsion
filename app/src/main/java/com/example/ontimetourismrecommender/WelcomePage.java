@@ -14,7 +14,7 @@ public class WelcomePage extends AppCompatActivity {
 //هذا الشرط راح يحفظ حالة المستخدم لان صفحة الويلكم هي اول صفحة يفتحها البرنامج لو المستخدم سجل دخوله وسكر البرنامج وحب يدخله مره ثانيه هذا الشرط راح يتاكد اؤذا هذا المستخدم للحين مسجل دخوله او لا عن طريق كلاس الشيرد برفرنس
         if(Sheardpref.getInstance(this).isLoggedIn()){
             finish();
-            startActivity(new Intent(this, profile1.class));
+            startActivity(new Intent(this, main_explore.class));
             return;
         }
 

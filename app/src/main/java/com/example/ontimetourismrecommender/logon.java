@@ -12,7 +12,21 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class logon extends AppCompatActivity {
 
@@ -23,7 +37,7 @@ public class logon extends AppCompatActivity {
         //Start ProgressBar first (Set visibility VISIBLE)
         EditText username= findViewById(R.id.username);
         EditText pass= findViewById(R.id.pass);
-        Button log= findViewById(R.id.button);
+        Button log= findViewById(R.id.serch);
         ProgressBar pro= findViewById(R.id.progress);
 
 
@@ -60,8 +74,51 @@ public class logon extends AppCompatActivity {
 
                                     String result = putData.getResult();
                                     if(result.equals("Login Success")){
+                                        StringRequest stringRequest = new StringRequest(
+                                                Request.Method.POST,"http://10.0.2.2/login/getphoto.php"
+                                                ,   new Response.Listener<String>() {
+                                            @Override
+                                            public void onResponse(String response) {
+                                                try {
+                                                    JSONArray array = new JSONArray(response);
+                                                    JSONObject obj=  array.getJSONObject(0);
+                                                    String photo= obj.getString("photo");
+                                                    Sheardpref.getInstance(getApplicationContext()).storephoto(photo);
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                    Toast.makeText(
+                                                            getApplicationContext(),
+                                                            "Error catch",
+                                                            Toast.LENGTH_LONG
+                                                    ).show();
+                                                }
+
+                                            }
+                                        }, new Response.ErrorListener() {
+                                            @Override
+                                            public void onErrorResponse(VolleyError error) {
+
+                                                Toast.makeText(
+                                                        getApplicationContext(),
+                                                        "Error",
+                                                        Toast.LENGTH_LONG
+                                                ).show();
+                                            }
+                                        }){
+                                            @Override
+                                            protected Map<String, String> getParams() throws AuthFailureError {
+                                                Map<String, String> params =new HashMap<>();
+                                                params.put("UserName",name);
+
+                                                return params;
+                                            }
+                                        };
+                                        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
+                                        requestQueue.add(stringRequest);
+
+
                                         Sheardpref.getInstance(getApplicationContext()).userLogin(name);
-                                        Intent i = new Intent(getApplicationContext(), profile1.class);
+                                        Intent i = new Intent(getApplicationContext(), main_explore.class);
                                         startActivity(i);
                                         finish();
                                     }

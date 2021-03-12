@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,29 +8,63 @@
     android:background="#F4F2F2"
     tools:context=".profile1"
     android:layout_gravity="center"
-   >
+    >
 
 
-    <include layout="@layout/activity_toolbar1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear1">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:id="@+id/BackToProfile1"
+            android:clickable="true"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="#FF16375D"
+            android:textSize="18sp"
+            android:textStyle="bold" /></LinearLayout>
     <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:paddingTop="15dp"
         android:orientation="vertical"
         android:layout_gravity="center"
-      >
+        >
 
         <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ChangePhoto"
             android:layout_width="232dp"
             android:layout_height="110dp"
-            android:src="@drawable/avatar"
             android:layout_gravity="center"
-            android:id="@+id/photo"/>
+            android:src="@drawable/avatar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Edit Photo"
+            android:textColor="#FF16375D"
+            android:id="@+id/editphto"
+            android:clickable="true"></TextView>
 
-        <TextView android:layout_height="wrap_content"
-            android:id="@+id/name"
+        <EditText android:layout_height="wrap_content"
+            android:id="@+id/EditName"
             android:layout_width="wrap_content"
             android:text="UserName"
-             android:textColor="#FF16375D"
+            android:textColor="#FF16375D"
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_gravity="center"
@@ -39,7 +74,7 @@
             android:layout_height="1dp"
             android:background="#FF16375D"
             android:layout_marginTop="10dp"/>
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +83,8 @@
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginLeft="50dp"
+
+
 
 
         >
@@ -66,10 +103,9 @@
                 android:src="@drawable/ic_baseline_account_circle_24" />
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/Editusername"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="1"
                 android:text=" User Name"
                 android:textColor="#FF16375D"
@@ -81,8 +117,8 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_attach_money_24" />
 
-            <TextView
-                android:id="@+id/AmonutOfex"
+            <EditText
+                android:id="@+id/EditAmonutOfex"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -90,6 +126,8 @@
                 android:textColor="#FF16375D"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"/>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -104,8 +142,8 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_date_range_24" />
 
-            <TextView
-                android:id="@+id/Birthdate"
+            <EditText
+                android:id="@+id/EditBirthdate"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -121,8 +159,8 @@
 
                 android:src="@drawable/ic_baseline_location_on_24" />
 
-            <TextView
-                android:id="@+id/Location"
+            <EditText
+                android:id="@+id/EditLocation"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -130,7 +168,7 @@
                 android:textColor="#FF16375D"
                 android:textSize="18sp"
                 android:layout_marginLeft="10dp"
-               />
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -144,8 +182,8 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_phone_24" />
 
-            <TextView
-                android:id="@+id/Phone"
+            <EditText
+                android:id="@+id/EditPhone"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -161,8 +199,8 @@
 
                 android:src="@drawable/ic_baseline_email_24" />
 
-            <TextView
-                android:id="@+id/Email"
+            <EditText
+                android:id="@+id/EditEmail"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -185,10 +223,10 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_cast_for_education_24" />
 
-            <TextView
-                android:id="@+id/education"
+            <EditText
+                android:id="@+id/Editeducation"
                 android:layout_width="60dp"
-                android:layout_height="21dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="Education"
@@ -202,8 +240,8 @@
 
                 android:src="@drawable/person" />
 
-            <TextView
-                android:id="@+id/Status"
+            <EditText
+                android:id="@+id/EditStatus"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -228,40 +266,26 @@
 
         <TextView
             android:clickable="true"
-            android:id="@+id/editProfile"
+            android:id="@+id/Save"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/btn"
-            android:drawableLeft="@drawable/ic_baseline_edit_24"
+            android:text="Save"
             android:gravity="center"
             android:paddingLeft="10dp"
-            android:text="Eidt Profile"
             android:textColor="#FF16375D"
-            android:textSize="18dp"
+            android:textSize="20dp"
 
 
-            />
-
-        <TextView
-            android:clickable="true"
-            android:id="@+id/historyfeed"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/btn"
-            android:drawableLeft="@drawable/ic_baseline_where_to_vote_24"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:text="History Feed"
+            app:drawableLeftCompat="@drawable/ic_baseline_check_24" />
 
 
 
 
-            android:textColor="#FF16375D"
-            android:textSize="18dp" />
+
+
 
 
     </LinearLayout>

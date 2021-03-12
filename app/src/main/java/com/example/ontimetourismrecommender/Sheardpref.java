@@ -12,8 +12,10 @@ public class Sheardpref {
         private static Context ctx;
     private static final String SHARED_PREF_NAME = "mysharedpref12";
     private static final String KEY_USERNAME = "username";
-
-
+private static final String SHARED_PREF_SiteID="TouristSiteID";
+private static final String KEY_ID="SiteID";
+    private static final String SHARED_PREF_photo="Touristphoto";
+    private static final String KEY_photo="photo";
         private Sheardpref(Context context) {
             ctx = context;
 
@@ -24,6 +26,29 @@ public class Sheardpref {
                 instance = new Sheardpref(context);
             }
             return instance;
+        }
+        public boolean storephoto(String url){
+
+            SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_photo, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
+            editor.putString(KEY_photo, url);
+
+            editor.apply();
+
+            return true;
+        }
+        public boolean StoreId(String ID){
+            SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_SiteID, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
+            editor.putString(KEY_ID, ID);
+
+            editor.apply();
+
+            return true;
         }
     public boolean userLogin(String username ){
 
@@ -51,18 +76,37 @@ public class Sheardpref {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
+        SharedPreferences sharedPreference = ctx.getSharedPreferences(SHARED_PREF_photo, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = sharedPreference.edit();
+        editor1.clear();
+        editor1.apply();
+
         return true;
     }
+    public boolean detetSiteID(){
+
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_SiteID, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        return true;
+
+    }
     public String getUsername(){
-        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_USERNAME, null);
+            SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+            return sharedPreferences.getString(KEY_USERNAME, null);
+    }
+    public String getphoto(){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_photo, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_photo, null);
     }
 
+public String getSiteId(){
+
+    SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_SiteID, Context.MODE_PRIVATE);
+    return sharedPreferences.getString(KEY_ID, null);
+
+}
 
 
-    /*private static Sheardpref minstance;
-    private static Context mCtx;
-private Sheardpref(Context context){
-    mCtx=context;
-}*/
 }
